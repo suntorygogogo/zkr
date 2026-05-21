@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ben Zhu · Senior Data Engineer</title>
+<meta name="description" content="Ben Zhu — Senior Data Engineer specializing in Lakehouse architecture, cloud data platforms (Azure / AWS / Ali Cloud), real-time processing, and AI/LLM data products." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          ink: '#070B16',
+          panel: '#0E1424',
+          line: 'rgba(148,163,184,0.14)',
+          cyan: '#38BDF8',
+          azure: '#3B82F6',
+          iris: '#6366F1',
+          mint: '#34D399',
+        },
+        keyframes: {
+          float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-18px)' } },
+          shine: { '0%': { backgroundPosition: '0% 50%' }, '100%': { backgroundPosition: '200% 50%' } },
+        },
+        animation: {
+          float: 'float 9s ease-in-out infinite',
+          shine: 'shine 6s linear infinite',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { color-scheme: dark; }
+  html { -webkit-font-smoothing: antialiased; }
+  body { background: #070B16; }
+
+  /* Aurora / grid background */
+  .aurora::before {
+    content: ""; position: fixed; inset: 0; z-index: -2;
+    background:
+      radial-gradient(60rem 40rem at 12% -8%, rgba(56,189,248,0.16), transparent 60%),
+      radial-gradient(50rem 38rem at 92% 4%, rgba(99,102,241,0.18), transparent 60%),
+      radial-gradient(48rem 40rem at 50% 110%, rgba(52,211,153,0.10), transparent 60%);
+  }
+  .grid-bg::after {
+    content: ""; position: fixed; inset: 0; z-index: -1; opacity: .4;
+    background-image:
+      linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 85%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(100deg, #7DD3FC, #60A5FA, #818CF8, #34D399);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 6s linear infinite;
+  }
+  .glass {
+    background: linear-gradient(160deg, rgba(23,32,53,0.86), rgba(13,19,34,0.72));
+    border: 1px solid rgba(148,163,184,0.12);
+    backdrop-filter: blur(14px);
+  }
+  .glass-hover { transition: border-color .25s, box-shadow .25s, transform .25s, background .25s; }
+  .glass-hover:hover {
+    border-color: rgba(56,189,248,0.45);
+    box-shadow: 0 18px 50px -22px rgba(56,189,248,0.45);
+    transform: translateY(-4px);
+  }
+  .chip {
+    border: 1px solid rgba(148,163,184,0.18);
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .chip:hover { color: #BAE6FD; border-color: rgba(56,189,248,0.5); background: rgba(56,189,248,0.08); }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* nav link underline */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: linear-gradient(90deg, #38BDF8, #6366F1); transition: width .25s;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .skill-bar > span { display: block; height: 100%; border-radius: 9999px;
+    background: linear-gradient(90deg, #38BDF8, #6366F1); width: 0; transition: width 1.1s cubic-bezier(.2,.7,.2,1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .animate-float, .gradient-text { animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+  ::selection { background: rgba(56,189,248,0.3); }
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 11px; }
+  ::-webkit-scrollbar-thumb { background: #1d2740; border-radius: 9px; border: 3px solid #070B16; }
+</style>
+</head>
+
+<body class="aurora grid-bg font-sans text-slate-300 antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
+  <nav class="glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 sm:px-6">
+    <a href="#top" class="flex items-center gap-2.5 font-display font-semibold tracking-tight text-white">
+      <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-cyan to-iris text-sm font-bold text-ink">BZ</span>
+      <span>Ben Zhu</span>
+    </a>
+    <div class="hidden items-center gap-7 text-sm text-slate-400 md:flex">
+      <a href="#about" class="nav-link hover:text-white">About</a>
+      <a href="#skills" class="nav-link hover:text-white">Skills</a>
+      <a href="#experience" class="nav-link hover:text-white">Experience</a>
+      <a href="#projects" class="nav-link hover:text-white">Projects</a>
+      <a href="#stack" class="nav-link hover:text-white">Stack</a>
+    </div>
+    <a href="#contact" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_25px_-4px_rgba(56,189,248,.7)]">
+      Get in touch
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-5 pb-16 pt-32 sm:px-8">
+  <div class="pointer-events-none absolute right-0 top-24 -z-[1] h-72 w-72 animate-float rounded-full bg-iris/20 blur-3xl"></div>
+
+  <div class="reveal">
+    <span class="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-cyan">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-75"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-mint"></span>
+      </span>
+      Open to AI / Data Engineering roles
+    </span>
+  </div>
+
+  <h1 class="reveal mt-7 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-7xl lg:text-[5.5rem]">
+    Ben&nbsp;Zhu
+  </h1>
+  <p class="reveal mt-4 max-w-3xl font-display text-2xl font-medium sm:text-4xl">
+    <span class="gradient-text">Senior Data Engineer</span>
+    <span class="text-slate-500"> · Lakehouse · Cloud · AI</span>
+  </p>
+
+  <p class="reveal mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
+    7+ years building end-to-end data platforms across <span class="text-slate-200">Azure, AWS &amp; Ali Cloud</span>.
+    I design Lakehouse architectures, scalable ETL &amp; real-time pipelines, and AI/LLM data products that turn
+    multi-domain enterprise data into trusted, conversational insight.
+  </p>
+
+  <!-- contact buttons -->
+  <div class="reveal mt-9 flex flex-wrap items-center gap-3">
+    <a href="mailto:zkrsun@foxmail.com" class="group flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-cyan to-azure px-5 py-3 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_-6px_rgba(56,189,248,.8)]">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+      zkrsun@foxmail.com
+    </a>
+    <a href="tel:+8613736257767" class="chip flex cursor-pointer items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-slate-300">
+      <svg class="h-4 w-4 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-slate-300">CN</span>
+      +86 137 3625 7767
+    </a>
+    <a href="tel:+6580672737" class="chip flex cursor-pointer items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-slate-300">
+      <svg class="h-4 w-4 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-slate-300">SG</span>
+      +65 8067 2737
+    </a>
+    <span class="chip flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-slate-400">
+      <svg class="h-4 w-4 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      Singapore / Greater China
+    </span>
+  </div>
+
+  <!-- stats -->
+  <div class="reveal mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+    <div class="bg-panel/80 px-6 py-7">
+      <div class="font-display text-3xl font-bold text-white" data-count="7" data-suffix="+">0</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Years experience</div>
+    </div>
+    <div class="bg-panel/80 px-6 py-7">
+      <div class="font-display text-3xl font-bold text-white" data-count="3" data-suffix="">0</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Cloud platforms</div>
+    </div>
+    <div class="bg-panel/80 px-6 py-7">
+      <div class="font-display text-3xl font-bold text-white" data-count="11" data-suffix="+">0</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Data domains</div>
+    </div>
+    <div class="bg-panel/80 px-6 py-7">
+      <div class="font-display text-3xl font-bold text-white" data-count="90" data-suffix="%">0</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Cloud cost cut</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+    <div class="reveal">
+      <p class="font-mono text-sm text-cyan">// about</p>
+      <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Data platforms, end to end.</h2>
+      <p class="mt-6 text-lg leading-relaxed text-slate-400">
+        I'm a Senior Data Engineer with a Computer Science degree from
+        <span class="text-slate-200">Zhejiang University of Technology</span> and 7+ years across
+        global enterprises — Suntory, Danone Greater China, and high-growth retail. My work spans the full
+        lifecycle: <span class="text-slate-200">requirements, architecture, modeling, development, deployment, and operations.</span>
+      </p>
+      <p class="mt-4 text-lg leading-relaxed text-slate-400">
+        Lately I focus on <span class="text-cyan">Databricks Lakehouse</span> migrations and bringing
+        <span class="text-iris">LLM &amp; multi-agent systems</span> directly onto the data platform — letting
+        business users converse with their data instead of wrestling with traditional BI.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-2.5 text-sm">
+        <span class="chip rounded-full px-4 py-1.5">Lakehouse Architecture</span>
+        <span class="chip rounded-full px-4 py-1.5">Medallion Modeling</span>
+        <span class="chip rounded-full px-4 py-1.5">Real-time / Flink</span>
+        <span class="chip rounded-full px-4 py-1.5">RAG &amp; Vector Search</span>
+        <span class="chip rounded-full px-4 py-1.5">Full-stack (FastAPI · Vue)</span>
+      </div>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-7">
+      <h3 class="font-display text-lg font-semibold text-white">At a glance</h3>
+      <ul class="mt-5 space-y-4 text-sm">
+        <li class="flex items-start gap-3">
+          <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span><span class="text-slate-200">Education</span><br/>B.S. Computer Science &amp; Technology — Zhejiang University of Technology</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span><span class="text-slate-200">Current</span><br/>Senior Data Engineer @ Recruit Express (client: Suntory SBFI)</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span><span class="text-slate-200">Strengths</span><br/>Cloud migration · DWH design · DevOps · AI/LLM enablement</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
+          <span><span class="text-slate-200">Languages</span><br/>Java · Python · Scala · SQL (Hive / Spark)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono text-sm text-cyan">// skills</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Core competencies</h2>
+    <p class="mt-4 text-slate-400">A T-shaped skill set: deep in data engineering, broad across cloud, infra, and AI.</p>
+  </div>
+
+  <!-- proficiency bars -->
+  <div class="reveal mt-10 grid gap-x-12 gap-y-6 sm:grid-cols-2">
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Data Warehouse &amp; Lakehouse</span><span class="font-mono text-xs text-cyan">95%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="95%"></span></div>
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">SQL &amp; Performance Tuning</span><span class="font-mono text-xs text-cyan">95%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="95%"></span></div>
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Cloud (Azure / AWS / Ali)</span><span class="font-mono text-xs text-cyan">90%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="90%"></span></div>
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Spark / Flink Real-time</span><span class="font-mono text-xs text-cyan">88%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="88%"></span></div>
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">DevOps (Docker / K8s / Linux)</span><span class="font-mono text-xs text-cyan">82%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="82%"></span></div>
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">AI / LLM (LangGraph · RAG)</span><span class="font-mono text-xs text-cyan">85%</span></div>
+      <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="85%"></span></div>
+    </div>
+  </div>
+
+  <!-- skill category cards -->
+  <div class="mt-12 grid gap-5 md:grid-cols-3">
+    <!-- card -->
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/10 text-cyan">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">Big Data &amp; Cloud</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">MaxCompute, DataWorks, DTS, DataX, PolarDB · S3, Glue, Redshift, Lambda · Databricks, ADF, ADLS, Functions, Key Vault.</p>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-iris/10 text-iris">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="m2 15.5 10 5.5 10-5.5"/><path d="M2 12l10 5.5L22 12"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">Lakehouse &amp; Modeling</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">Delta Lake, Unity Catalog, Databricks SQL · dimensional modeling · Medallion (Bronze / Silver / Gold) · end-to-end pipelines.</p>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-mint/10 text-mint">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">Languages &amp; Backend</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">Java, Python, Scala · HiveSQL / Spark SQL · complex query &amp; performance optimization · independent backend &amp; data app development.</p>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/10 text-cyan">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 3v18M3 12h18"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">Real-time &amp; Hadoop</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">Flink / FlinkSQL with custom UDF / UDAF (Java) · Hadoop, Hive, HBase, Kafka, Zookeeper, YARN, Redis.</p>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-iris/10 text-iris">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">DevOps &amp; Infra</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">Linux, Docker, Kubernetes · shell scripting · cluster deployment with Kerberos authentication.</p>
+    </div>
+
+    <div class="reveal glass glass-hover rounded-2xl p-6">
+      <div class="grid h-11 w-11 place-items-center rounded-xl bg-mint/10 text-mint">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-2 7 4 4 0 0 0 6 5 4 4 0 0 0 6-5 4 4 0 0 0-2-7V6a4 4 0 0 0-4-4Z"/><path d="M12 7v13"/></svg>
+      </div>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white">AI / LLM &amp; Full-stack</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400">LangGraph agent orchestration, RAG, vector search, long-term memory · FastAPI + Vue.js (Vite · Element Plus) · Databricks Apps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono text-sm text-cyan">// experience</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Career timeline</h2>
+  </div>
+
+  <div class="mt-12 space-y-0 border-l border-line pl-6 sm:pl-10">
+    <!-- item -->
+    <div class="reveal relative pb-10">
+      <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-cyan ring-4 ring-ink sm:-left-[47px]"></span>
+      <div class="glass glass-hover rounded-2xl p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="font-display text-xl font-semibold text-white">Senior Data Engineer</h3>
+          <span class="font-mono text-xs text-cyan">May 2024 — Present</span>
+        </div>
+        <p class="mt-1 text-sm font-medium text-slate-300">Recruit Express Pte Ltd <span class="text-slate-500">· Singapore</span></p>
+        <p class="mt-3 text-sm text-slate-400">Leading the Suntory (SBFI) AWS→Azure Lakehouse migration and AI data-platform integration across SELLIN, SELLOUT, RMS, BHT, media &amp; POS domains.</p>
+      </div>
+    </div>
+
+    <div class="reveal relative pb-10">
+      <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-azure ring-4 ring-ink sm:-left-[47px]"></span>
+      <div class="glass glass-hover rounded-2xl p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="font-display text-xl font-semibold text-white">Data DevOps Lead</h3>
+          <span class="font-mono text-xs text-cyan">Jan 2023 — Apr 2024</span>
+        </div>
+        <p class="mt-1 text-sm font-medium text-slate-300">Michael Page <span class="text-slate-500">· client: Danone Greater China</span></p>
+        <p class="mt-3 text-sm text-slate-400">Data development team lead for Danone's Ali Cloud datalake — sales, supply chain &amp; marketing analytics, plus ETL operations &amp; SLA ownership.</p>
+      </div>
+    </div>
+
+    <div class="reveal relative pb-10">
+      <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-iris ring-4 ring-ink sm:-left-[47px]"></span>
+      <div class="glass glass-hover rounded-2xl p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="font-display text-xl font-semibold text-white">Big Data Development Engineer</h3>
+          <span class="font-mono text-xs text-cyan">Feb 2021 — Jan 2023</span>
+        </div>
+        <p class="mt-1 text-sm font-medium text-slate-300">Zhejiang Hoomi Technology Co. Ltd</p>
+        <p class="mt-3 text-sm text-slate-400">Built the Hoomi data platform &amp; index-management system across 8 business domains; user-profile/tagging system for marketing.</p>
+      </div>
+    </div>
+
+    <div class="reveal relative">
+      <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-mint ring-4 ring-ink sm:-left-[47px]"></span>
+      <div class="glass glass-hover rounded-2xl p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="font-display text-xl font-semibold text-white">Big Data Development Engineer</h3>
+          <span class="font-mono text-xs text-cyan">Aug 2018 — Feb 2021</span>
+        </div>
+        <p class="mt-1 text-sm font-medium text-slate-300">Beijing Haizhi Starmap Technology Co. Ltd</p>
+        <p class="mt-3 text-sm text-slate-400">Early-career foundation in distributed systems and big-data development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono text-sm text-cyan">// projects</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Featured projects</h2>
+    <p class="mt-4 text-slate-400">Click any card for the full breakdown — background, architecture, and my responsibilities.</p>
+  </div>
+
+  <div class="mt-12 grid gap-6 md:grid-cols-2">
+
+    <!-- Project 1: Suntory -->
+    <article class="reveal group glass glass-hover cursor-pointer overflow-hidden rounded-2xl" data-project="suntory">
+      <div class="relative h-44 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan/30 via-azure/20 to-iris/30"></div>
+        <img alt="Cloud data platform" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=70"
+          onerror="this.style.display='none'"/>
+        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2024 — Present</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-display text-xl font-semibold text-white">Suntory Beverage &amp; Food (SBFI)</h3>
+        <p class="mt-1 text-sm text-slate-400">AWS → Azure Lakehouse migration &amp; AI data platform.</p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip rounded-md px-2.5 py-1">Azure Databricks</span>
+          <span class="chip rounded-md px-2.5 py-1">Delta Lake</span>
+          <span class="chip rounded-md px-2.5 py-1">Unity Catalog</span>
+          <span class="chip rounded-md px-2.5 py-1">Multi-Agent LLM</span>
+        </div>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </article>
+
+    <!-- Project 2: Danone -->
+    <article class="reveal group glass glass-hover cursor-pointer overflow-hidden rounded-2xl" data-project="danone">
+      <div class="relative h-44 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-mint/30 via-cyan/20 to-azure/30"></div>
+        <img alt="Analytics dashboards" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70"
+          onerror="this.style.display='none'"/>
+        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2023 — 2024</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-display text-xl font-semibold text-white">Danone Greater China</h3>
+        <p class="mt-1 text-sm text-slate-400">Ali Cloud datalake for sales, supply chain &amp; marketing.</p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip rounded-md px-2.5 py-1">MaxCompute</span>
+          <span class="chip rounded-md px-2.5 py-1">DataWorks</span>
+          <span class="chip rounded-md px-2.5 py-1">Hologres</span>
+          <span class="chip rounded-md px-2.5 py-1">Power BI</span>
+        </div>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </article>
+
+    <!-- Project 3: Hoomi -->
+    <article class="reveal group glass glass-hover cursor-pointer overflow-hidden rounded-2xl" data-project="hoomi">
+      <div class="relative h-44 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-iris/30 via-azure/20 to-cyan/30"></div>
+        <img alt="Data infrastructure" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=70"
+          onerror="this.style.display='none'"/>
+        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2021 — 2022</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-display text-xl font-semibold text-white">Hoomi Data Platform</h3>
+        <p class="mt-1 text-sm text-slate-400">8-domain data warehouse &amp; index-management system.</p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip rounded-md px-2.5 py-1">ClickHouse</span>
+          <span class="chip rounded-md px-2.5 py-1">Blink</span>
+          <span class="chip rounded-md px-2.5 py-1">PolarDB</span>
+          <span class="chip rounded-md px-2.5 py-1">QuickBI</span>
+        </div>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </article>
+
+    <!-- Project 4: User Profile -->
+    <article class="reveal group glass glass-hover cursor-pointer overflow-hidden rounded-2xl" data-project="profile">
+      <div class="relative h-44 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-azure/30 via-iris/20 to-mint/30"></div>
+        <img alt="User segmentation" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+          src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=70"
+          onerror="this.style.display='none'"/>
+        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2022</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-display text-xl font-semibold text-white">User Profile Management System</h3>
+        <p class="mt-1 text-sm text-slate-400">Tagging, crowd selection &amp; insight engine for marketing.</p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="chip rounded-md px-2.5 py-1">Spring</span>
+          <span class="chip rounded-md px-2.5 py-1">PolarDB</span>
+          <span class="chip rounded-md px-2.5 py-1">Redis</span>
+          <span class="chip rounded-md px-2.5 py-1">Sensors</span>
+        </div>
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section id="stack" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono text-sm text-cyan">// stack</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Technology stack</h2>
+  </div>
+
+  <div class="reveal mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">Cloud &amp; Platform</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">Azure</span><span class="chip rounded-lg px-3 py-1.5">AWS</span><span class="chip rounded-lg px-3 py-1.5">Ali Cloud</span><span class="chip rounded-lg px-3 py-1.5">Databricks</span><span class="chip rounded-lg px-3 py-1.5">ADF</span><span class="chip rounded-lg px-3 py-1.5">ADLS</span><span class="chip rounded-lg px-3 py-1.5">MaxCompute</span><span class="chip rounded-lg px-3 py-1.5">Redshift</span><span class="chip rounded-lg px-3 py-1.5">Glue</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">Lakehouse &amp; DWH</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">Delta Lake</span><span class="chip rounded-lg px-3 py-1.5">Unity Catalog</span><span class="chip rounded-lg px-3 py-1.5">Databricks SQL</span><span class="chip rounded-lg px-3 py-1.5">Hologres</span><span class="chip rounded-lg px-3 py-1.5">Snowflake</span><span class="chip rounded-lg px-3 py-1.5">ClickHouse</span><span class="chip rounded-lg px-3 py-1.5">PolarDB</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">Big Data &amp; Streaming</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">Spark</span><span class="chip rounded-lg px-3 py-1.5">Flink</span><span class="chip rounded-lg px-3 py-1.5">Hadoop</span><span class="chip rounded-lg px-3 py-1.5">Hive</span><span class="chip rounded-lg px-3 py-1.5">HBase</span><span class="chip rounded-lg px-3 py-1.5">Kafka</span><span class="chip rounded-lg px-3 py-1.5">YARN</span><span class="chip rounded-lg px-3 py-1.5">Zookeeper</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">Languages</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">Java</span><span class="chip rounded-lg px-3 py-1.5">Python</span><span class="chip rounded-lg px-3 py-1.5">Scala</span><span class="chip rounded-lg px-3 py-1.5">Spark SQL</span><span class="chip rounded-lg px-3 py-1.5">HiveSQL</span><span class="chip rounded-lg px-3 py-1.5">Shell</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">AI / LLM &amp; Full-stack</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">LangGraph</span><span class="chip rounded-lg px-3 py-1.5">RAG</span><span class="chip rounded-lg px-3 py-1.5">Vector Search</span><span class="chip rounded-lg px-3 py-1.5">Genie</span><span class="chip rounded-lg px-3 py-1.5">MLflow</span><span class="chip rounded-lg px-3 py-1.5">FastAPI</span><span class="chip rounded-lg px-3 py-1.5">Vue.js</span><span class="chip rounded-lg px-3 py-1.5">Element Plus</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-mono text-sm font-semibold text-cyan">DevOps &amp; Infra</h3>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="chip rounded-lg px-3 py-1.5">Linux</span><span class="chip rounded-lg px-3 py-1.5">Docker</span><span class="chip rounded-lg px-3 py-1.5">Kubernetes</span><span class="chip rounded-lg px-3 py-1.5">Kerberos</span><span class="chip rounded-lg px-3 py-1.5">Redis</span><span class="chip rounded-lg px-3 py-1.5">DQC</span><span class="chip rounded-lg px-3 py-1.5">elastic-job</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
+  <div class="reveal glass relative overflow-hidden rounded-3xl px-7 py-14 text-center sm:px-12">
+    <div class="pointer-events-none absolute -left-10 -top-10 h-48 w-48 rounded-full bg-cyan/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-12 -right-8 h-56 w-56 rounded-full bg-iris/20 blur-3xl"></div>
+    <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Let's talk data.</h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-400">Happy to walk through any project, architecture decision, or trade-off in detail during the interview.</p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href="mailto:zkrsun@foxmail.com" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-6 py-3 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_-6px_rgba(56,189,248,.8)]">Email me</a>
+      <a href="tel:+8613736257767" class="chip cursor-pointer rounded-xl px-6 py-3 text-sm font-medium text-slate-200"><span class="font-mono text-xs text-cyan">CN</span> +86 137 3625 7767</a>
+      <a href="tel:+6580672737" class="chip cursor-pointer rounded-xl px-6 py-3 text-sm font-medium text-slate-200"><span class="font-mono text-xs text-cyan">SG</span> +65 8067 2737</a>
+    </div>
+  </div>
+  <footer class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-line pt-7 text-sm text-slate-500 sm:flex-row">
+    <span>© <span id="year"></span> Ben Zhu · Senior Data Engineer</span>
+    <span class="font-mono text-xs">Built for interview · Lakehouse &middot; Cloud &middot; AI</span>
+  </footer>
+</section>
+
+</main>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div id="modal" class="fixed inset-0 z-[60] hidden items-start justify-center overflow-y-auto bg-ink/80 p-4 backdrop-blur-sm sm:items-center">
+  <div id="modal-card" class="glass my-8 flex max-h-[88vh] w-full max-w-3xl translate-y-4 flex-col rounded-2xl p-7 opacity-0 transition-all duration-300 sm:p-9">
+    <div class="flex flex-none items-start justify-between gap-4">
+      <div>
+        <p id="m-period" class="font-mono text-xs text-cyan"></p>
+        <h3 id="m-title" class="mt-1 font-display text-2xl font-bold text-white"></h3>
+      </div>
+      <button id="modal-close" aria-label="Close" class="grid h-9 w-9 flex-none cursor-pointer place-items-center rounded-lg border border-line text-slate-400 transition-colors hover:border-cyan/50 hover:text-white">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="m-body" class="mt-6 flex-1 space-y-6 overflow-y-auto pr-1 text-sm leading-relaxed text-slate-300"></div>
+  </div>
+</div>
+
+<script>
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      e.target.querySelectorAll?.('.skill-bar > span').forEach(s => s.style.width = s.dataset.w);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (Math.min(i, 6) * 60) + 'ms';
+  io.observe(el);
+});
+
+/* ---------- Count up stats ---------- */
+const counters = document.querySelectorAll('[data-count]');
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { el.textContent = target + suffix; cObs.unobserve(el); return; }
+    let cur = 0, step = Math.max(1, Math.ceil(target / 40));
+    const tick = () => { cur += step; if (cur >= target) cur = target; el.textContent = cur + suffix; if (cur < target) requestAnimationFrame(tick); };
+    tick(); cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => cObs.observe(c));
+
+/* ---------- Year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Project data ---------- */
+const projects = {
+  suntory: {
+    period: 'May 2024 — Present · Recruit Express (client: Suntory SBFI)',
+    title: 'Suntory Beverage & Food International',
+    bg: 'Suntory is driving digital transformation by migrating its traditional AWS-based data platform to an Azure-based Lakehouse architecture. The platform supports SELLIN, SELLOUT, RMS, BHT, media and POS — enabling unified analysis, reporting and AI-driven insight across sales, marketing and supply chain.',
+    arch: ['Azure Databricks','ADF','ADLS','Delta Lake','Unity Catalog','Power BI','SQL Server','SAP','Lakebase Postgres','FastAPI','Vue.js','MLflow','Genie','Multi-Agent LLM','Vector Search'],
+    groups: [
+      { h: 'Cloud Migration (AWS → Azure Lakehouse)', items: [
+        'Migrated data pipelines from AWS (S3, Glue, Redshift) to the Azure ecosystem (ADF + Databricks + ADLS).',
+        'Redesigned ETL workflows on Databricks (Delta Lake) for scalability and performance.',
+        'Standardized architecture using the Medallion model (Bronze / Silver / Gold).',
+        'Optimized ingestion & transformation — improving reliability and reducing operational complexity.' ] },
+      { h: 'Core Data Domain Development', items: [
+        'Built pipelines for SELLIN / SELLOUT (sales & distribution tracking), RMS (market share & volume), POS / BHT (point-of-sale & behavioral).',
+        'Created standardized models for cross-domain analytics; ensured consistency across SAP, distributors & external vendors.',
+        'Supported downstream reporting for sales, finance and marketing.' ] },
+      { h: 'SBR Project — unified data product', items: [
+        'Consolidated 12+ domains (BHT, HHP, MACRO, MEDIA, NEWS, POS, RMS, RTM, SCM, SELLIN, SELLOUT, WEATHER) into a centralized Lakehouse.',
+        'Replaced the manual Monthly Business Report with automated, standardized pipelines & models.',
+        'Enabled Power BI + API access with consistent KPI definitions — transforming reporting into real-time analytics.' ] },
+      { h: 'Master Data Management (MDS)', items: [
+        'Deployed & maintained Microsoft MDS for centralized governance of product, customer & channel entities.',
+        'Integrated MDS with the platform; troubleshot cross-domain AD / Kerberos access issues.' ] },
+      { h: 'AI & Platform Integration (Genie + Multi-Agent)', items: [
+        'Designed an AI-powered interaction layer using Databricks Genie and a multi-agent architecture.',
+        'Built domain-based routing (SELLIN / SELLOUT / RMS / MACRO) for intelligent query handling.',
+        'Implemented long-term memory & context-aware processing via vector search and Lakehouse storage.',
+        'Enabled business users to query data conversationally instead of using traditional BI.' ] },
+    ],
+  },
+  danone: {
+    period: 'Jan 2023 — Apr 2024 · Michael Page (client: Danone Greater China)',
+    title: 'Danone Greater China Data Platform',
+    bg: 'Danone Greater China builds an Ali Cloud datalake to replace its traditional Informatica + CDH warehouse, serving sales, supply chain and marketing for requirement analysis, design, development and operation. As data development team lead, I planned the digital direction across the milk-powder (ELN), beverage (DWC) and medical-nutrition (AMN) units.',
+    arch: ['MaxCompute','DataWorks','Hologres','Power BI','Tableau','SQL Server','MySQL','Snowflake','Databricks','SAP','Spring','Redis','DQC','Nginx'],
+    groups: [
+      { h: 'Sales', items: [
+        'Sales DC Datalake: optimized the Direct-China sales datalake for daily sales data; 30+ analysis tables & OLAP cubes serving 300+ users on web & mobile.',
+        'Sales DI Datalake: built the Direct-Import datalake from scratch, integrating SELLIN / SELLOUT / OFFTAKE / INVENTORY and manual HK / TW / Macau data — foundation for demand planning.' ] },
+      { h: 'Supply Chain', items: [
+        'RTM (Route to Market): unified internal (Danone + distributors) inventory and external carrier logistics across the supply-chain lifecycle for DI & DC products.',
+        'T&C / ROLEX: end-to-end can-level traceability API — production, canning, transport, warehousing, distribution & terminal sales; consumer code-scan source tracing & anti-counterfeit.',
+        'AMN_PSI: integrated purchasing & sales-delivery data from SAP into a 30-KPI dashboard (top-10 province/category sales, GIT qty, open-PO qty, billing qty).' ] },
+      { h: 'Marketing', items: [
+        'DWC SKU Performance: integrated Nielsen & Kantar data for core-product (Pulse, Lingqi) and competitor market & consumer analysis.',
+        'Social Listening: flattened semi-structured comment data from Xiaohongshu, Weibo & mother-baby forums (1M+ records/day). Cut daily runtime from 2 hours to 10 minutes and Ali Cloud cost by 90%+ via optimization.' ] },
+      { h: 'Operations & Team Lead', items: [
+        'Ran agile change requests end-to-end with code control, version management & production deployment.',
+        'Managed the data ops team — ETL & Power BI dataset jobs, ServiceNow tickets (incident / CR / SR), RCA & job optimization to hold SLA / BAU.',
+        'Led production deployments and performed code reviews.' ] },
+    ],
+  },
+  hoomi: {
+    period: 'Feb 2021 — Dec 2022 · Zhejiang Hoomi Technology',
+    title: 'Hoomi Data Platform',
+    bg: 'After 10+ years of B-end new-retail growth, Hoomi needed a mature data system to avoid repeated computation, improve data sharing and enable data-as-a-service. I helped select the platform technology and developed/deployed several core modules.',
+    arch: ['DTS','RPA','DataHub','PolarDB','ClickHouse','Blink','MaxCompute','DQC','DataWorks','QuickBI','Spring','Redis','Impala','Elasticsearch','elastic-job'],
+    groups: [
+      { h: 'Platform & Modeling', items: [
+        'Built the index-management system — decomposing index components into logical tables for free, rule-based assembly and standardized custom indexes.',
+        'Authored DWH development specs: index management, SQL writing, data cleaning and task-naming conventions.',
+        'Modeled & stratified 8 domains: trading, commodity, member, material, storage, sales, customer-service and finance.' ] },
+      { h: 'Quality, BI & Services', items: [
+        'Configured DQC monitoring with classified data and strong/weak rule scheduling for intelligent early-warning and on-time delivery.',
+        'Built QuickBI datasets & departmental visual reports for effective business access.',
+        'Used RPA to collect competitor & takeout data for better pricing and sales.',
+        'Developed an ad-hoc self-service data-access system on the common layer, plus open-platform service APIs for other departments.' ] },
+    ],
+  },
+  profile: {
+    period: 'Jun 2022 — Aug 2022 · Zhejiang Hoomi Technology',
+    title: 'User Profile Management System',
+    bg: 'A user-portrait system to quantify users, tag them with labels, and locate target groups through modeling for marketing campaigns and effect analysis.',
+    arch: ['RPA','DTS','DataHub','PolarDB','MaxCompute','DataWorks','Spring','Redis','Sensors','elastic-job'],
+    groups: [
+      { h: 'Responsibilities', items: [
+        'Integrated internal business-system data and external sources (customer service, Sensors) into the warehouse; built the application-layer user-label table.',
+        'Synced label tables to PolarDB daily for crowd selection and crowd-package creation.',
+        'Developed the crowd-circle selection core logic on Spring using streams with an optimal data structure.',
+        'Built crowd-insight logic — multi-label insight on selected crowds and two-package comparison across labels.',
+        'Delivered open user-profile APIs with Redis hot/cold backup, plus API development docs.' ] },
+    ],
+  },
+};
+
+/* ---------- Modal logic ---------- */
+const modal = document.getElementById('modal');
+const card  = document.getElementById('modal-card');
+function openModal(key){
+  const p = projects[key]; if(!p) return;
+  document.getElementById('m-period').textContent = p.period;
+  document.getElementById('m-title').textContent = p.title;
+  const body = document.getElementById('m-body');
+  body.innerHTML =
+    '<p class="text-slate-400">'+p.bg+'</p>' +
+    '<div><p class="font-mono text-xs uppercase tracking-wider text-cyan mb-3">Technical architecture</p><div class="flex flex-wrap gap-2">' +
+      p.arch.map(t=>'<span class="chip rounded-md px-2.5 py-1 text-xs">'+t+'</span>').join('') +
+    '</div></div>' +
+    p.groups.map(g =>
+      '<div><h4 class="font-display font-semibold text-white">'+g.h+'</h4><ul class="mt-2 space-y-2">' +
+      g.items.map(it=>'<li class="flex gap-2.5"><svg class="mt-1.5 h-1.5 w-1.5 flex-none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#38BDF8"/></svg><span class="text-slate-400">'+it+'</span></li>').join('') +
+      '</ul></div>'
+    ).join('');
+  modal.classList.remove('hidden'); modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(()=>{ card.classList.remove('opacity-0','translate-y-4'); });
+}
+function closeModal(){
+  card.classList.add('opacity-0','translate-y-4');
+  document.body.style.overflow = '';
+  setTimeout(()=>{ modal.classList.add('hidden'); modal.classList.remove('flex'); }, 250);
+}
+document.querySelectorAll('[data-project]').forEach(el => el.addEventListener('click', () => openModal(el.dataset.project)));
+document.getElementById('modal-close').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+</script>
+</body>
+</html>

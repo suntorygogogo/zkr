@@ -16,8 +16,8 @@
     theme: {
       extend: {
         fontFamily: {
-          display: ['"Space Grotesk"', 'sans-serif'],
-          sans: ['Inter', 'sans-serif'],
+          display: ['"Space Grotesk"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+          sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
           mono: ['"JetBrains Mono"', 'monospace'],
         },
         colors: {
@@ -124,15 +124,22 @@
       <span>Ben Zhu</span>
     </a>
     <div class="hidden items-center gap-7 text-sm text-slate-400 md:flex">
-      <a href="#about" class="nav-link hover:text-white">About</a>
-      <a href="#skills" class="nav-link hover:text-white">Skills</a>
-      <a href="#experience" class="nav-link hover:text-white">Experience</a>
-      <a href="#projects" class="nav-link hover:text-white">Projects</a>
-      <a href="#stack" class="nav-link hover:text-white">Stack</a>
+      <a href="#about" class="nav-link hover:text-white" data-en="About" data-zh="关于">About</a>
+      <a href="#skills" class="nav-link hover:text-white" data-en="Skills" data-zh="技能">Skills</a>
+      <a href="#experience" class="nav-link hover:text-white" data-en="Experience" data-zh="经历">Experience</a>
+      <a href="#projects" class="nav-link hover:text-white" data-en="Projects" data-zh="项目">Projects</a>
+      <a href="#stack" class="nav-link hover:text-white" data-en="Stack" data-zh="技术栈">Stack</a>
     </div>
-    <a href="#contact" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_25px_-4px_rgba(56,189,248,.7)]">
-      Get in touch
-    </a>
+    <div class="flex items-center gap-2.5">
+      <button id="lang-toggle" aria-label="Switch language" class="chip flex cursor-pointer items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold">
+        <span id="lbl-en" class="transition-colors">EN</span>
+        <span class="text-slate-600">/</span>
+        <span id="lbl-zh" class="transition-colors">中</span>
+      </button>
+      <a href="#contact" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_25px_-4px_rgba(56,189,248,.7)]" data-en="Get in touch" data-zh="联系我">
+        Get in touch
+      </a>
+    </div>
   </nav>
 </header>
 
@@ -148,7 +155,7 @@
         <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-75"></span>
         <span class="relative inline-flex h-2 w-2 rounded-full bg-mint"></span>
       </span>
-      Open to AI / Data Engineering roles
+      <span data-en="Open to AI / Data Engineering roles" data-zh="开放 AI / 数据工程相关机会">Open to AI / Data Engineering roles</span>
     </span>
   </div>
 
@@ -156,11 +163,13 @@
     Ben&nbsp;Zhu
   </h1>
   <p class="reveal mt-4 max-w-3xl font-display text-2xl font-medium sm:text-4xl">
-    <span class="gradient-text">Senior Data Engineer</span>
-    <span class="text-slate-500"> · Lakehouse · Cloud · AI</span>
+    <span class="gradient-text" data-en="Senior Data Engineer" data-zh="高级数据工程师">Senior Data Engineer</span>
+    <span class="text-slate-500" data-en=" · Lakehouse · Cloud · AI" data-zh=" · 湖仓 · 云 · AI"> · Lakehouse · Cloud · AI</span>
   </p>
 
-  <p class="reveal mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
+  <p class="reveal mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
+     data-en="7+ years building end-to-end data platforms across <span class='text-slate-200'>Azure, AWS &amp; Ali Cloud</span>. I design Lakehouse architectures, scalable ETL &amp; real-time pipelines, and AI/LLM data products that turn multi-domain enterprise data into trusted, conversational insight."
+     data-zh="7 年以上端到端数据平台建设经验，横跨 <span class='text-slate-200'>Azure、AWS 与阿里云</span>。专注湖仓架构、可扩展的 ETL 与实时管道，以及 AI/LLM 数据产品，把多域企业数据转化为可信、可对话的洞察。">
     7+ years building end-to-end data platforms across <span class="text-slate-200">Azure, AWS &amp; Ali Cloud</span>.
     I design Lakehouse architectures, scalable ETL &amp; real-time pipelines, and AI/LLM data products that turn
     multi-domain enterprise data into trusted, conversational insight.
@@ -184,7 +193,7 @@
     </a>
     <span class="chip flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-slate-400">
       <svg class="h-4 w-4 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-      Singapore / Greater China
+      <span data-en="Singapore / Greater China" data-zh="新加坡 / 大中华区">Singapore / Greater China</span>
     </span>
   </div>
 
@@ -192,19 +201,19 @@
   <div class="reveal mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
     <div class="bg-panel/80 px-6 py-7">
       <div class="font-display text-3xl font-bold text-white" data-count="7" data-suffix="+">0</div>
-      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Years experience</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500" data-en="Years experience" data-zh="年经验">Years experience</div>
     </div>
     <div class="bg-panel/80 px-6 py-7">
       <div class="font-display text-3xl font-bold text-white" data-count="3" data-suffix="">0</div>
-      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Cloud platforms</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500" data-en="Cloud platforms" data-zh="云平台">Cloud platforms</div>
     </div>
     <div class="bg-panel/80 px-6 py-7">
       <div class="font-display text-3xl font-bold text-white" data-count="11" data-suffix="+">0</div>
-      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Data domains</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500" data-en="Data domains" data-zh="数据域">Data domains</div>
     </div>
     <div class="bg-panel/80 px-6 py-7">
       <div class="font-display text-3xl font-bold text-white" data-count="90" data-suffix="%">0</div>
-      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500">Cloud cost cut</div>
+      <div class="mt-1 text-xs uppercase tracking-wider text-slate-500" data-en="Cloud cost cut" data-zh="云成本降低">Cloud cost cut</div>
     </div>
   </div>
 </section>
@@ -214,45 +223,53 @@
   <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
     <div class="reveal">
       <p class="font-mono text-sm text-cyan">// about</p>
-      <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Data platforms, end to end.</h2>
-      <p class="mt-6 text-lg leading-relaxed text-slate-400">
+      <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl" data-en="Data platforms, end to end." data-zh="端到端的数据平台">Data platforms, end to end.</h2>
+      <p class="mt-6 text-lg leading-relaxed text-slate-400"
+         data-en="I'm a Senior Data Engineer with a Computer Science degree from <span class='text-slate-200'>Zhejiang University of Technology</span> and 7+ years across global enterprises — Suntory, Danone Greater China, and high-growth retail. My work spans the full lifecycle: <span class='text-slate-200'>requirements, architecture, modeling, development, deployment, and operations.</span>"
+         data-zh="我是一名高级数据工程师，拥有<span class='text-slate-200'>浙江工业大学</span>计算机科学学位，7 年以上服务全球企业的经验——三得利、达能大中华区与高速增长的零售企业。工作覆盖完整生命周期：<span class='text-slate-200'>需求、架构、建模、开发、部署与运维。</span>">
         I'm a Senior Data Engineer with a Computer Science degree from
         <span class="text-slate-200">Zhejiang University of Technology</span> and 7+ years across
         global enterprises — Suntory, Danone Greater China, and high-growth retail. My work spans the full
         lifecycle: <span class="text-slate-200">requirements, architecture, modeling, development, deployment, and operations.</span>
       </p>
-      <p class="mt-4 text-lg leading-relaxed text-slate-400">
+      <p class="mt-4 text-lg leading-relaxed text-slate-400"
+         data-en="Lately I focus on <span class='text-cyan'>Databricks Lakehouse</span> migrations and bringing <span class='text-iris'>LLM &amp; multi-agent systems</span> directly onto the data platform — letting business users converse with their data instead of wrestling with traditional BI."
+         data-zh="近期专注于 <span class='text-cyan'>Databricks 湖仓</span> 迁移，并将 <span class='text-iris'>LLM 与多智能体系统</span> 直接引入数据平台——让业务用户以对话方式获取数据，而非依赖传统 BI。">
         Lately I focus on <span class="text-cyan">Databricks Lakehouse</span> migrations and bringing
         <span class="text-iris">LLM &amp; multi-agent systems</span> directly onto the data platform — letting
         business users converse with their data instead of wrestling with traditional BI.
       </p>
       <div class="mt-8 flex flex-wrap gap-2.5 text-sm">
-        <span class="chip rounded-full px-4 py-1.5">Lakehouse Architecture</span>
-        <span class="chip rounded-full px-4 py-1.5">Medallion Modeling</span>
-        <span class="chip rounded-full px-4 py-1.5">Real-time / Flink</span>
-        <span class="chip rounded-full px-4 py-1.5">RAG &amp; Vector Search</span>
-        <span class="chip rounded-full px-4 py-1.5">Full-stack (FastAPI · Vue)</span>
+        <span class="chip rounded-full px-4 py-1.5" data-en="Lakehouse Architecture" data-zh="湖仓架构">Lakehouse Architecture</span>
+        <span class="chip rounded-full px-4 py-1.5" data-en="Medallion Modeling" data-zh="奖牌分层建模">Medallion Modeling</span>
+        <span class="chip rounded-full px-4 py-1.5" data-en="Real-time / Flink" data-zh="实时 / Flink">Real-time / Flink</span>
+        <span class="chip rounded-full px-4 py-1.5" data-en="RAG &amp; Vector Search" data-zh="RAG 与向量检索">RAG &amp; Vector Search</span>
+        <span class="chip rounded-full px-4 py-1.5" data-en="Full-stack (FastAPI · Vue)" data-zh="全栈 (FastAPI · Vue)">Full-stack (FastAPI · Vue)</span>
       </div>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-7">
-      <h3 class="font-display text-lg font-semibold text-white">At a glance</h3>
+      <h3 class="font-display text-lg font-semibold text-white" data-en="At a glance" data-zh="概览">At a glance</h3>
       <ul class="mt-5 space-y-4 text-sm">
         <li class="flex items-start gap-3">
           <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          <span><span class="text-slate-200">Education</span><br/>B.S. Computer Science &amp; Technology — Zhejiang University of Technology</span>
+          <span data-en="<span class='text-slate-200'>Education</span><br/>B.S. Computer Science &amp; Technology — Zhejiang University of Technology"
+                data-zh="<span class='text-slate-200'>教育背景</span><br/>计算机科学与技术 学士 — 浙江工业大学"><span class="text-slate-200">Education</span><br/>B.S. Computer Science &amp; Technology — Zhejiang University of Technology</span>
         </li>
         <li class="flex items-start gap-3">
           <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          <span><span class="text-slate-200">Current</span><br/>Senior Data Engineer @ Recruit Express (client: Suntory SBFI)</span>
+          <span data-en="<span class='text-slate-200'>Current</span><br/>Senior Data Engineer @ Recruit Express (client: Suntory SBFI)"
+                data-zh="<span class='text-slate-200'>当前</span><br/>高级数据工程师 @ Recruit Express（客户：三得利 SBFI）"><span class="text-slate-200">Current</span><br/>Senior Data Engineer @ Recruit Express (client: Suntory SBFI)</span>
         </li>
         <li class="flex items-start gap-3">
           <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          <span><span class="text-slate-200">Strengths</span><br/>Cloud migration · DWH design · DevOps · AI/LLM enablement</span>
+          <span data-en="<span class='text-slate-200'>Strengths</span><br/>Cloud migration · DWH design · DevOps · AI/LLM enablement"
+                data-zh="<span class='text-slate-200'>优势</span><br/>云迁移 · 数仓设计 · DevOps · AI/LLM 赋能"><span class="text-slate-200">Strengths</span><br/>Cloud migration · DWH design · DevOps · AI/LLM enablement</span>
         </li>
         <li class="flex items-start gap-3">
           <svg class="mt-0.5 h-5 w-5 flex-none text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
-          <span><span class="text-slate-200">Languages</span><br/>Java · Python · Scala · SQL (Hive / Spark)</span>
+          <span data-en="<span class='text-slate-200'>Languages</span><br/>Java · Python · Scala · SQL (Hive / Spark)"
+                data-zh="<span class='text-slate-200'>编程语言</span><br/>Java · Python · Scala · SQL (Hive / Spark)"><span class="text-slate-200">Languages</span><br/>Java · Python · Scala · SQL (Hive / Spark)</span>
         </li>
       </ul>
     </div>
@@ -263,87 +280,86 @@
 <section id="skills" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
   <div class="reveal max-w-2xl">
     <p class="font-mono text-sm text-cyan">// skills</p>
-    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Core competencies</h2>
-    <p class="mt-4 text-slate-400">A T-shaped skill set: deep in data engineering, broad across cloud, infra, and AI.</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl" data-en="Core competencies" data-zh="核心能力">Core competencies</h2>
+    <p class="mt-4 text-slate-400" data-en="A T-shaped skill set: deep in data engineering, broad across cloud, infra, and AI." data-zh="T 型能力结构：深耕数据工程，横跨云、基础设施与 AI。">A T-shaped skill set: deep in data engineering, broad across cloud, infra, and AI.</p>
   </div>
 
   <!-- proficiency bars -->
   <div class="reveal mt-10 grid gap-x-12 gap-y-6 sm:grid-cols-2">
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Data Warehouse &amp; Lakehouse</span><span class="font-mono text-xs text-cyan">95%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="Data Warehouse &amp; Lakehouse" data-zh="数仓与湖仓">Data Warehouse &amp; Lakehouse</span><span class="font-mono text-xs text-cyan">95%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="95%"></span></div>
     </div>
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">SQL &amp; Performance Tuning</span><span class="font-mono text-xs text-cyan">95%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="SQL &amp; Performance Tuning" data-zh="SQL 与性能调优">SQL &amp; Performance Tuning</span><span class="font-mono text-xs text-cyan">95%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="95%"></span></div>
     </div>
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Cloud (Azure / AWS / Ali)</span><span class="font-mono text-xs text-cyan">90%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="Cloud (Azure / AWS / Ali)" data-zh="云 (Azure / AWS / 阿里)">Cloud (Azure / AWS / Ali)</span><span class="font-mono text-xs text-cyan">90%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="90%"></span></div>
     </div>
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">Spark / Flink Real-time</span><span class="font-mono text-xs text-cyan">88%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="Spark / Flink Real-time" data-zh="Spark / Flink 实时">Spark / Flink Real-time</span><span class="font-mono text-xs text-cyan">88%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="88%"></span></div>
     </div>
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">DevOps (Docker / K8s / Linux)</span><span class="font-mono text-xs text-cyan">82%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="DevOps (Docker / K8s / Linux)" data-zh="运维 (Docker / K8s / Linux)">DevOps (Docker / K8s / Linux)</span><span class="font-mono text-xs text-cyan">82%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="82%"></span></div>
     </div>
     <div>
-      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200">AI / LLM (LangGraph · RAG)</span><span class="font-mono text-xs text-cyan">85%</span></div>
+      <div class="flex items-baseline justify-between"><span class="font-medium text-slate-200" data-en="AI / LLM (LangGraph · RAG)" data-zh="AI / LLM (LangGraph · RAG)">AI / LLM (LangGraph · RAG)</span><span class="font-mono text-xs text-cyan">85%</span></div>
       <div class="skill-bar mt-2 h-2 rounded-full bg-white/5"><span data-w="85%"></span></div>
     </div>
   </div>
 
   <!-- skill category cards -->
   <div class="mt-12 grid gap-5 md:grid-cols-3">
-    <!-- card -->
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/10 text-cyan">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">Big Data &amp; Cloud</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">MaxCompute, DataWorks, DTS, DataX, PolarDB · S3, Glue, Redshift, Lambda · Databricks, ADF, ADLS, Functions, Key Vault.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="Big Data &amp; Cloud" data-zh="大数据与云">Big Data &amp; Cloud</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="MaxCompute, DataWorks, DTS, DataX, PolarDB · S3, Glue, Redshift, Lambda · Databricks, ADF, ADLS, Functions, Key Vault." data-zh="MaxCompute、DataWorks、DTS、DataX、PolarDB · S3、Glue、Redshift、Lambda · Databricks、ADF、ADLS、Functions、Key Vault。">MaxCompute, DataWorks, DTS, DataX, PolarDB · S3, Glue, Redshift, Lambda · Databricks, ADF, ADLS, Functions, Key Vault.</p>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-iris/10 text-iris">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="m2 15.5 10 5.5 10-5.5"/><path d="M2 12l10 5.5L22 12"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">Lakehouse &amp; Modeling</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">Delta Lake, Unity Catalog, Databricks SQL · dimensional modeling · Medallion (Bronze / Silver / Gold) · end-to-end pipelines.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="Lakehouse &amp; Modeling" data-zh="湖仓与建模">Lakehouse &amp; Modeling</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="Delta Lake, Unity Catalog, Databricks SQL · dimensional modeling · Medallion (Bronze / Silver / Gold) · end-to-end pipelines." data-zh="Delta Lake、Unity Catalog、Databricks SQL · 维度建模 · 奖牌架构 (Bronze / Silver / Gold) · 端到端管道。">Delta Lake, Unity Catalog, Databricks SQL · dimensional modeling · Medallion (Bronze / Silver / Gold) · end-to-end pipelines.</p>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-mint/10 text-mint">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">Languages &amp; Backend</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">Java, Python, Scala · HiveSQL / Spark SQL · complex query &amp; performance optimization · independent backend &amp; data app development.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="Languages &amp; Backend" data-zh="语言与后端">Languages &amp; Backend</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="Java, Python, Scala · HiveSQL / Spark SQL · complex query &amp; performance optimization · independent backend &amp; data app development." data-zh="Java、Python、Scala · HiveSQL / Spark SQL · 复杂查询与性能优化 · 独立开发后端与数据应用。">Java, Python, Scala · HiveSQL / Spark SQL · complex query &amp; performance optimization · independent backend &amp; data app development.</p>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-cyan/10 text-cyan">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 3v18M3 12h18"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">Real-time &amp; Hadoop</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">Flink / FlinkSQL with custom UDF / UDAF (Java) · Hadoop, Hive, HBase, Kafka, Zookeeper, YARN, Redis.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="Real-time &amp; Hadoop" data-zh="实时与 Hadoop">Real-time &amp; Hadoop</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="Flink / FlinkSQL with custom UDF / UDAF (Java) · Hadoop, Hive, HBase, Kafka, Zookeeper, YARN, Redis." data-zh="基于 Flink / FlinkSQL 开发自定义 UDF / UDAF (Java) · Hadoop、Hive、HBase、Kafka、Zookeeper、YARN、Redis。">Flink / FlinkSQL with custom UDF / UDAF (Java) · Hadoop, Hive, HBase, Kafka, Zookeeper, YARN, Redis.</p>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-iris/10 text-iris">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">DevOps &amp; Infra</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">Linux, Docker, Kubernetes · shell scripting · cluster deployment with Kerberos authentication.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="DevOps &amp; Infra" data-zh="运维与基础设施">DevOps &amp; Infra</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="Linux, Docker, Kubernetes · shell scripting · cluster deployment with Kerberos authentication." data-zh="Linux、Docker、Kubernetes · Shell 脚本 · 基于 Kerberos 认证的集群部署。">Linux, Docker, Kubernetes · shell scripting · cluster deployment with Kerberos authentication.</p>
     </div>
 
     <div class="reveal glass glass-hover rounded-2xl p-6">
       <div class="grid h-11 w-11 place-items-center rounded-xl bg-mint/10 text-mint">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-2 7 4 4 0 0 0 6 5 4 4 0 0 0 6-5 4 4 0 0 0-2-7V6a4 4 0 0 0-4-4Z"/><path d="M12 7v13"/></svg>
       </div>
-      <h3 class="mt-4 font-display text-lg font-semibold text-white">AI / LLM &amp; Full-stack</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-400">LangGraph agent orchestration, RAG, vector search, long-term memory · FastAPI + Vue.js (Vite · Element Plus) · Databricks Apps.</p>
+      <h3 class="mt-4 font-display text-lg font-semibold text-white" data-en="AI / LLM &amp; Full-stack" data-zh="AI / LLM 与全栈">AI / LLM &amp; Full-stack</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-400" data-en="LangGraph agent orchestration, RAG, vector search, long-term memory · FastAPI + Vue.js (Vite · Element Plus) · Databricks Apps." data-zh="LangGraph 智能体编排、RAG、向量检索、长期记忆 · FastAPI + Vue.js (Vite · Element Plus) · Databricks Apps。">LangGraph agent orchestration, RAG, vector search, long-term memory · FastAPI + Vue.js (Vite · Element Plus) · Databricks Apps.</p>
     </div>
   </div>
 </section>
@@ -352,20 +368,19 @@
 <section id="experience" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
   <div class="reveal max-w-2xl">
     <p class="font-mono text-sm text-cyan">// experience</p>
-    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Career timeline</h2>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl" data-en="Career timeline" data-zh="职业经历">Career timeline</h2>
   </div>
 
   <div class="mt-12 space-y-0 border-l border-line pl-6 sm:pl-10">
-    <!-- item -->
     <div class="reveal relative pb-10">
       <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-cyan ring-4 ring-ink sm:-left-[47px]"></span>
       <div class="glass glass-hover rounded-2xl p-6">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <h3 class="font-display text-xl font-semibold text-white">Senior Data Engineer</h3>
-          <span class="font-mono text-xs text-cyan">May 2024 — Present</span>
+          <h3 class="font-display text-xl font-semibold text-white" data-en="Senior Data Engineer" data-zh="高级数据工程师">Senior Data Engineer</h3>
+          <span class="font-mono text-xs text-cyan" data-en="May 2024 — Present" data-zh="2024.05 — 至今">May 2024 — Present</span>
         </div>
-        <p class="mt-1 text-sm font-medium text-slate-300">Recruit Express Pte Ltd <span class="text-slate-500">· Singapore</span></p>
-        <p class="mt-3 text-sm text-slate-400">Leading the Suntory (SBFI) AWS→Azure Lakehouse migration and AI data-platform integration across SELLIN, SELLOUT, RMS, BHT, media &amp; POS domains.</p>
+        <p class="mt-1 text-sm font-medium text-slate-300" data-en="Recruit Express Pte Ltd <span class='text-slate-500'>· Singapore</span>" data-zh="Recruit Express Pte Ltd <span class='text-slate-500'>· 新加坡</span>">Recruit Express Pte Ltd <span class="text-slate-500">· Singapore</span></p>
+        <p class="mt-3 text-sm text-slate-400" data-en="Leading the Suntory (SBFI) AWS→Azure Lakehouse migration and AI data-platform integration across SELLIN, SELLOUT, RMS, BHT, media &amp; POS domains." data-zh="主导三得利 (SBFI) 从 AWS 到 Azure 的湖仓迁移，以及横跨 SELLIN、SELLOUT、RMS、BHT、媒体与 POS 各域的 AI 数据平台集成。">Leading the Suntory (SBFI) AWS→Azure Lakehouse migration and AI data-platform integration across SELLIN, SELLOUT, RMS, BHT, media &amp; POS domains.</p>
       </div>
     </div>
 
@@ -373,11 +388,11 @@
       <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-azure ring-4 ring-ink sm:-left-[47px]"></span>
       <div class="glass glass-hover rounded-2xl p-6">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <h3 class="font-display text-xl font-semibold text-white">Data DevOps Lead</h3>
-          <span class="font-mono text-xs text-cyan">Jan 2023 — Apr 2024</span>
+          <h3 class="font-display text-xl font-semibold text-white" data-en="Data DevOps Lead" data-zh="数据 DevOps 负责人">Data DevOps Lead</h3>
+          <span class="font-mono text-xs text-cyan" data-en="Jan 2023 — Apr 2024" data-zh="2023.01 — 2024.04">Jan 2023 — Apr 2024</span>
         </div>
-        <p class="mt-1 text-sm font-medium text-slate-300">Michael Page <span class="text-slate-500">· client: Danone Greater China</span></p>
-        <p class="mt-3 text-sm text-slate-400">Data development team lead for Danone's Ali Cloud datalake — sales, supply chain &amp; marketing analytics, plus ETL operations &amp; SLA ownership.</p>
+        <p class="mt-1 text-sm font-medium text-slate-300" data-en="Michael Page <span class='text-slate-500'>· client: Danone Greater China</span>" data-zh="Michael Page <span class='text-slate-500'>· 客户：达能大中华区</span>">Michael Page <span class="text-slate-500">· client: Danone Greater China</span></p>
+        <p class="mt-3 text-sm text-slate-400" data-en="Data development team lead for Danone's Ali Cloud datalake — sales, supply chain &amp; marketing analytics, plus ETL operations &amp; SLA ownership." data-zh="达能阿里云数据湖的数据开发团队负责人——销售、供应链与营销分析，并负责 ETL 运维与 SLA。">Data development team lead for Danone's Ali Cloud datalake — sales, supply chain &amp; marketing analytics, plus ETL operations &amp; SLA ownership.</p>
       </div>
     </div>
 
@@ -385,11 +400,11 @@
       <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-iris ring-4 ring-ink sm:-left-[47px]"></span>
       <div class="glass glass-hover rounded-2xl p-6">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <h3 class="font-display text-xl font-semibold text-white">Big Data Development Engineer</h3>
-          <span class="font-mono text-xs text-cyan">Feb 2021 — Jan 2023</span>
+          <h3 class="font-display text-xl font-semibold text-white" data-en="Big Data Development Engineer" data-zh="大数据开发工程师">Big Data Development Engineer</h3>
+          <span class="font-mono text-xs text-cyan" data-en="Feb 2021 — Jan 2023" data-zh="2021.02 — 2023.01">Feb 2021 — Jan 2023</span>
         </div>
         <p class="mt-1 text-sm font-medium text-slate-300">Zhejiang Hoomi Technology Co. Ltd</p>
-        <p class="mt-3 text-sm text-slate-400">Built the Hoomi data platform &amp; index-management system across 8 business domains; user-profile/tagging system for marketing.</p>
+        <p class="mt-3 text-sm text-slate-400" data-en="Built the Hoomi data platform &amp; index-management system across 8 business domains; user-profile/tagging system for marketing." data-zh="搭建 Hoomi 数据平台与指标管理系统，覆盖 8 大业务域；面向营销的用户画像/标签系统。">Built the Hoomi data platform &amp; index-management system across 8 business domains; user-profile/tagging system for marketing.</p>
       </div>
     </div>
 
@@ -397,11 +412,11 @@
       <span class="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-mint ring-4 ring-ink sm:-left-[47px]"></span>
       <div class="glass glass-hover rounded-2xl p-6">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <h3 class="font-display text-xl font-semibold text-white">Big Data Development Engineer</h3>
-          <span class="font-mono text-xs text-cyan">Aug 2018 — Feb 2021</span>
+          <h3 class="font-display text-xl font-semibold text-white" data-en="Big Data Development Engineer" data-zh="大数据开发工程师">Big Data Development Engineer</h3>
+          <span class="font-mono text-xs text-cyan" data-en="Aug 2018 — Feb 2021" data-zh="2018.08 — 2021.02">Aug 2018 — Feb 2021</span>
         </div>
         <p class="mt-1 text-sm font-medium text-slate-300">Beijing Haizhi Starmap Technology Co. Ltd</p>
-        <p class="mt-3 text-sm text-slate-400">Early-career foundation in distributed systems and big-data development.</p>
+        <p class="mt-3 text-sm text-slate-400" data-en="Early-career foundation in distributed systems and big-data development." data-zh="早期职业积累：分布式系统与大数据开发。">Early-career foundation in distributed systems and big-data development.</p>
       </div>
     </div>
   </div>
@@ -411,8 +426,8 @@
 <section id="projects" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
   <div class="reveal max-w-2xl">
     <p class="font-mono text-sm text-cyan">// projects</p>
-    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Featured projects</h2>
-    <p class="mt-4 text-slate-400">Click any card for the full breakdown — background, architecture, and my responsibilities.</p>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl" data-en="Featured projects" data-zh="重点项目">Featured projects</h2>
+    <p class="mt-4 text-slate-400" data-en="Click any card for the full breakdown — background, architecture, and my responsibilities." data-zh="点击任意卡片查看完整内容——背景、架构与我的职责。">Click any card for the full breakdown — background, architecture, and my responsibilities.</p>
   </div>
 
   <div class="mt-12 grid gap-6 md:grid-cols-2">
@@ -424,18 +439,19 @@
         <img alt="Cloud data platform" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=70"
           onerror="this.style.display='none'"/>
-        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2024 — Present</span>
+        <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur" data-en="2024 — Present" data-zh="2024 — 至今">2024 — Present</span>
       </div>
       <div class="p-6">
         <h3 class="font-display text-xl font-semibold text-white">Suntory Beverage &amp; Food (SBFI)</h3>
-        <p class="mt-1 text-sm text-slate-400">AWS → Azure Lakehouse migration &amp; AI data platform.</p>
+        <p class="mt-1 text-sm text-slate-400" data-en="AWS → Azure Lakehouse migration &amp; AI data platform." data-zh="AWS → Azure 湖仓迁移与 AI 数据平台。">AWS → Azure Lakehouse migration &amp; AI data platform.</p>
         <div class="mt-4 flex flex-wrap gap-2 text-xs">
           <span class="chip rounded-md px-2.5 py-1">Azure Databricks</span>
           <span class="chip rounded-md px-2.5 py-1">Delta Lake</span>
           <span class="chip rounded-md px-2.5 py-1">Unity Catalog</span>
           <span class="chip rounded-md px-2.5 py-1">Multi-Agent LLM</span>
         </div>
-        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">
+          <span data-en="View case study" data-zh="查看详情">View case study</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -452,14 +468,15 @@
       </div>
       <div class="p-6">
         <h3 class="font-display text-xl font-semibold text-white">Danone Greater China</h3>
-        <p class="mt-1 text-sm text-slate-400">Ali Cloud datalake for sales, supply chain &amp; marketing.</p>
+        <p class="mt-1 text-sm text-slate-400" data-en="Ali Cloud datalake for sales, supply chain &amp; marketing." data-zh="面向销售、供应链与营销的阿里云数据湖。">Ali Cloud datalake for sales, supply chain &amp; marketing.</p>
         <div class="mt-4 flex flex-wrap gap-2 text-xs">
           <span class="chip rounded-md px-2.5 py-1">MaxCompute</span>
           <span class="chip rounded-md px-2.5 py-1">DataWorks</span>
           <span class="chip rounded-md px-2.5 py-1">Hologres</span>
           <span class="chip rounded-md px-2.5 py-1">Power BI</span>
         </div>
-        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">
+          <span data-en="View case study" data-zh="查看详情">View case study</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -476,14 +493,15 @@
       </div>
       <div class="p-6">
         <h3 class="font-display text-xl font-semibold text-white">Hoomi Data Platform</h3>
-        <p class="mt-1 text-sm text-slate-400">8-domain data warehouse &amp; index-management system.</p>
+        <p class="mt-1 text-sm text-slate-400" data-en="8-domain data warehouse &amp; index-management system." data-zh="8 大业务域数据仓库与指标管理系统。">8-domain data warehouse &amp; index-management system.</p>
         <div class="mt-4 flex flex-wrap gap-2 text-xs">
           <span class="chip rounded-md px-2.5 py-1">ClickHouse</span>
           <span class="chip rounded-md px-2.5 py-1">Blink</span>
           <span class="chip rounded-md px-2.5 py-1">PolarDB</span>
           <span class="chip rounded-md px-2.5 py-1">QuickBI</span>
         </div>
-        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">
+          <span data-en="View case study" data-zh="查看详情">View case study</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -499,15 +517,16 @@
         <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2022</span>
       </div>
       <div class="p-6">
-        <h3 class="font-display text-xl font-semibold text-white">User Profile Management System</h3>
-        <p class="mt-1 text-sm text-slate-400">Tagging, crowd selection &amp; insight engine for marketing.</p>
+        <h3 class="font-display text-xl font-semibold text-white" data-en="User Profile Management System" data-zh="用户画像管理系统">User Profile Management System</h3>
+        <p class="mt-1 text-sm text-slate-400" data-en="Tagging, crowd selection &amp; insight engine for marketing." data-zh="面向营销的标签、人群圈选与洞察引擎。">Tagging, crowd selection &amp; insight engine for marketing.</p>
         <div class="mt-4 flex flex-wrap gap-2 text-xs">
           <span class="chip rounded-md px-2.5 py-1">Spring</span>
           <span class="chip rounded-md px-2.5 py-1">PolarDB</span>
           <span class="chip rounded-md px-2.5 py-1">Redis</span>
           <span class="chip rounded-md px-2.5 py-1">Sensors</span>
         </div>
-        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">View case study
+        <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-cyan">
+          <span data-en="View case study" data-zh="查看详情">View case study</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -520,42 +539,42 @@
 <section id="stack" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8">
   <div class="reveal max-w-2xl">
     <p class="font-mono text-sm text-cyan">// stack</p>
-    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">Technology stack</h2>
+    <h2 class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl" data-en="Technology stack" data-zh="技术栈">Technology stack</h2>
   </div>
 
   <div class="reveal mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">Cloud &amp; Platform</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="Cloud &amp; Platform" data-zh="云与平台">Cloud &amp; Platform</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">Azure</span><span class="chip rounded-lg px-3 py-1.5">AWS</span><span class="chip rounded-lg px-3 py-1.5">Ali Cloud</span><span class="chip rounded-lg px-3 py-1.5">Databricks</span><span class="chip rounded-lg px-3 py-1.5">ADF</span><span class="chip rounded-lg px-3 py-1.5">ADLS</span><span class="chip rounded-lg px-3 py-1.5">MaxCompute</span><span class="chip rounded-lg px-3 py-1.5">Redshift</span><span class="chip rounded-lg px-3 py-1.5">Glue</span>
       </div>
     </div>
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">Lakehouse &amp; DWH</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="Lakehouse &amp; DWH" data-zh="湖仓与数仓">Lakehouse &amp; DWH</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">Delta Lake</span><span class="chip rounded-lg px-3 py-1.5">Unity Catalog</span><span class="chip rounded-lg px-3 py-1.5">Databricks SQL</span><span class="chip rounded-lg px-3 py-1.5">Hologres</span><span class="chip rounded-lg px-3 py-1.5">Snowflake</span><span class="chip rounded-lg px-3 py-1.5">ClickHouse</span><span class="chip rounded-lg px-3 py-1.5">PolarDB</span>
       </div>
     </div>
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">Big Data &amp; Streaming</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="Big Data &amp; Streaming" data-zh="大数据与流处理">Big Data &amp; Streaming</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">Spark</span><span class="chip rounded-lg px-3 py-1.5">Flink</span><span class="chip rounded-lg px-3 py-1.5">Hadoop</span><span class="chip rounded-lg px-3 py-1.5">Hive</span><span class="chip rounded-lg px-3 py-1.5">HBase</span><span class="chip rounded-lg px-3 py-1.5">Kafka</span><span class="chip rounded-lg px-3 py-1.5">YARN</span><span class="chip rounded-lg px-3 py-1.5">Zookeeper</span>
       </div>
     </div>
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">Languages</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="Languages" data-zh="编程语言">Languages</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">Java</span><span class="chip rounded-lg px-3 py-1.5">Python</span><span class="chip rounded-lg px-3 py-1.5">Scala</span><span class="chip rounded-lg px-3 py-1.5">Spark SQL</span><span class="chip rounded-lg px-3 py-1.5">HiveSQL</span><span class="chip rounded-lg px-3 py-1.5">Shell</span>
       </div>
     </div>
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">AI / LLM &amp; Full-stack</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="AI / LLM &amp; Full-stack" data-zh="AI / LLM 与全栈">AI / LLM &amp; Full-stack</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">LangGraph</span><span class="chip rounded-lg px-3 py-1.5">RAG</span><span class="chip rounded-lg px-3 py-1.5">Vector Search</span><span class="chip rounded-lg px-3 py-1.5">Genie</span><span class="chip rounded-lg px-3 py-1.5">MLflow</span><span class="chip rounded-lg px-3 py-1.5">FastAPI</span><span class="chip rounded-lg px-3 py-1.5">Vue.js</span><span class="chip rounded-lg px-3 py-1.5">Element Plus</span>
       </div>
     </div>
     <div class="glass rounded-2xl p-6">
-      <h3 class="font-mono text-sm font-semibold text-cyan">DevOps &amp; Infra</h3>
+      <h3 class="font-mono text-sm font-semibold text-cyan" data-en="DevOps &amp; Infra" data-zh="运维与基础设施">DevOps &amp; Infra</h3>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="chip rounded-lg px-3 py-1.5">Linux</span><span class="chip rounded-lg px-3 py-1.5">Docker</span><span class="chip rounded-lg px-3 py-1.5">Kubernetes</span><span class="chip rounded-lg px-3 py-1.5">Kerberos</span><span class="chip rounded-lg px-3 py-1.5">Redis</span><span class="chip rounded-lg px-3 py-1.5">DQC</span><span class="chip rounded-lg px-3 py-1.5">elastic-job</span>
       </div>
@@ -568,17 +587,17 @@
   <div class="reveal glass relative overflow-hidden rounded-3xl px-7 py-14 text-center sm:px-12">
     <div class="pointer-events-none absolute -left-10 -top-10 h-48 w-48 rounded-full bg-cyan/20 blur-3xl"></div>
     <div class="pointer-events-none absolute -bottom-12 -right-8 h-56 w-56 rounded-full bg-iris/20 blur-3xl"></div>
-    <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Let's talk data.</h2>
-    <p class="mx-auto mt-4 max-w-xl text-slate-400">Happy to walk through any project, architecture decision, or trade-off in detail during the interview.</p>
+    <h2 class="font-display text-3xl font-bold text-white sm:text-4xl" data-en="Let's talk data." data-zh="聊聊数据吧。">Let's talk data.</h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-400" data-en="Happy to walk through any project, architecture decision, or trade-off in detail during the interview." data-zh="很乐意在面试中详细讲解任何项目、架构决策或取舍。">Happy to walk through any project, architecture decision, or trade-off in detail during the interview.</p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a href="mailto:zkrsun@foxmail.com" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-6 py-3 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_-6px_rgba(56,189,248,.8)]">Email me</a>
+      <a href="mailto:zkrsun@foxmail.com" class="cursor-pointer rounded-xl bg-gradient-to-r from-cyan to-azure px-6 py-3 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_30px_-6px_rgba(56,189,248,.8)]" data-en="Email me" data-zh="发邮件">Email me</a>
       <a href="tel:+8613736257767" class="chip cursor-pointer rounded-xl px-6 py-3 text-sm font-medium text-slate-200"><span class="font-mono text-xs text-cyan">CN</span> +86 137 3625 7767</a>
       <a href="tel:+6580672737" class="chip cursor-pointer rounded-xl px-6 py-3 text-sm font-medium text-slate-200"><span class="font-mono text-xs text-cyan">SG</span> +65 8067 2737</a>
     </div>
   </div>
   <footer class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-line pt-7 text-sm text-slate-500 sm:flex-row">
-    <span>© <span id="year"></span> Ben Zhu · Senior Data Engineer</span>
-    <span class="font-mono text-xs">Built for interview · Lakehouse &middot; Cloud &middot; AI</span>
+    <span>© <span id="year"></span> <span data-en="Ben Zhu · Senior Data Engineer" data-zh="Ben Zhu · 高级数据工程师">Ben Zhu · Senior Data Engineer</span></span>
+    <span class="font-mono text-xs" data-en="Built for interview · Lakehouse · Cloud · AI" data-zh="为面试而建 · 湖仓 · 云 · AI">Built for interview · Lakehouse · Cloud · AI</span>
   </footer>
 </section>
 
@@ -634,123 +653,240 @@ counters.forEach(c => cObs.observe(c));
 /* ---------- Year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------- Project data ---------- */
-const projects = {
+/* ---------- Project data (bilingual) ---------- */
+const projectData = {
   suntory: {
-    period: 'May 2024 — Present · Recruit Express (client: Suntory SBFI)',
-    title: 'Suntory Beverage & Food International',
-    bg: 'Suntory is driving digital transformation by migrating its traditional AWS-based data platform to an Azure-based Lakehouse architecture. The platform supports SELLIN, SELLOUT, RMS, BHT, media and POS — enabling unified analysis, reporting and AI-driven insight across sales, marketing and supply chain.',
+    en: {
+      period: 'May 2024 — Present · Recruit Express (client: Suntory SBFI)',
+      title: 'Suntory Beverage & Food International',
+      bg: 'Suntory is driving digital transformation by migrating its traditional AWS-based data platform to an Azure-based Lakehouse architecture. The platform supports SELLIN, SELLOUT, RMS, BHT, media and POS — enabling unified analysis, reporting and AI-driven insight across sales, marketing and supply chain.',
+      groups: [
+        { h: 'Cloud Migration (AWS → Azure Lakehouse)', items: [
+          'Migrated data pipelines from AWS (S3, Glue, Redshift) to the Azure ecosystem (ADF + Databricks + ADLS).',
+          'Redesigned ETL workflows on Databricks (Delta Lake) for scalability and performance.',
+          'Standardized architecture using the Medallion model (Bronze / Silver / Gold).',
+          'Optimized ingestion & transformation — improving reliability and reducing operational complexity.' ] },
+        { h: 'Core Data Domain Development', items: [
+          'Built pipelines for SELLIN / SELLOUT (sales & distribution tracking), RMS (market share & volume), POS / BHT (point-of-sale & behavioral).',
+          'Created standardized models for cross-domain analytics; ensured consistency across SAP, distributors & external vendors.',
+          'Supported downstream reporting for sales, finance and marketing.' ] },
+        { h: 'SBR Project — unified data product', items: [
+          'Consolidated 12+ domains (BHT, HHP, MACRO, MEDIA, NEWS, POS, RMS, RTM, SCM, SELLIN, SELLOUT, WEATHER) into a centralized Lakehouse.',
+          'Replaced the manual Monthly Business Report with automated, standardized pipelines & models.',
+          'Enabled Power BI + API access with consistent KPI definitions — transforming reporting into real-time analytics.' ] },
+        { h: 'Master Data Management (MDS)', items: [
+          'Deployed & maintained Microsoft MDS for centralized governance of product, customer & channel entities.',
+          'Integrated MDS with the platform; troubleshot cross-domain AD / Kerberos access issues.' ] },
+        { h: 'AI & Platform Integration (Genie + Multi-Agent)', items: [
+          'Designed an AI-powered interaction layer using Databricks Genie and a multi-agent architecture.',
+          'Built domain-based routing (SELLIN / SELLOUT / RMS / MACRO) for intelligent query handling.',
+          'Implemented long-term memory & context-aware processing via vector search and Lakehouse storage.',
+          'Enabled business users to query data conversationally instead of using traditional BI.' ] },
+      ],
+    },
+    zh: {
+      period: '2024.05 — 至今 · Recruit Express（客户：三得利 SBFI）',
+      title: '三得利食品饮料国际 (SBFI)',
+      bg: '三得利正推动数字化转型，将传统的 AWS 数据平台迁移至基于 Azure 的湖仓架构。平台支持 SELLIN、SELLOUT、RMS、BHT、媒体与 POS——为销售、营销与供应链提供统一分析、报表与 AI 驱动的洞察。',
+      groups: [
+        { h: '云迁移 (AWS → Azure 湖仓)', items: [
+          '将数据管道从 AWS (S3、Glue、Redshift) 迁移至 Azure 生态 (ADF + Databricks + ADLS)。',
+          '在 Databricks (Delta Lake) 上重构 ETL 流程，提升可扩展性与性能。',
+          '采用奖牌架构 (Bronze / Silver / Gold) 标准化数据架构。',
+          '优化数据接入与转换——提升可靠性并降低运维复杂度。' ] },
+        { h: '核心数据域开发', items: [
+          '构建 SELLIN / SELLOUT（销售与分销追踪）、RMS（市场份额与销量）、POS / BHT（终端与行为）数据管道。',
+          '建立标准化模型支撑跨域分析；确保 SAP、经销商与外部供应商数据一致。',
+          '支撑销售、财务与营销的下游报表。' ] },
+        { h: 'SBR 项目——统一数据产品', items: [
+          '将 12+ 业务域 (BHT、HHP、MACRO、MEDIA、NEWS、POS、RMS、RTM、SCM、SELLIN、SELLOUT、WEATHER) 整合进中心化湖仓。',
+          '以自动化、标准化的管道与模型替代手工月度业务报表。',
+          '通过统一 KPI 定义开放 Power BI 与 API 访问——将报表升级为实时分析。' ] },
+        { h: '主数据管理 (MDS)', items: [
+          '部署并维护 Microsoft MDS，实现产品、客户、渠道等主数据的集中治理。',
+          '将 MDS 与数据平台集成；排查跨域 AD / Kerberos 访问问题。' ] },
+        { h: 'AI 与平台集成 (Genie + 多智能体)', items: [
+          '基于 Databricks Genie 与多智能体架构设计 AI 数据交互层。',
+          '构建基于业务域 (SELLIN / SELLOUT / RMS / MACRO) 的路由逻辑，智能处理查询。',
+          '通过向量检索与湖仓存储实现长期记忆与上下文感知处理。',
+          '让业务用户以对话方式查询数据，替代传统 BI。' ] },
+      ],
+    },
     arch: ['Azure Databricks','ADF','ADLS','Delta Lake','Unity Catalog','Power BI','SQL Server','SAP','Lakebase Postgres','FastAPI','Vue.js','MLflow','Genie','Multi-Agent LLM','Vector Search'],
-    groups: [
-      { h: 'Cloud Migration (AWS → Azure Lakehouse)', items: [
-        'Migrated data pipelines from AWS (S3, Glue, Redshift) to the Azure ecosystem (ADF + Databricks + ADLS).',
-        'Redesigned ETL workflows on Databricks (Delta Lake) for scalability and performance.',
-        'Standardized architecture using the Medallion model (Bronze / Silver / Gold).',
-        'Optimized ingestion & transformation — improving reliability and reducing operational complexity.' ] },
-      { h: 'Core Data Domain Development', items: [
-        'Built pipelines for SELLIN / SELLOUT (sales & distribution tracking), RMS (market share & volume), POS / BHT (point-of-sale & behavioral).',
-        'Created standardized models for cross-domain analytics; ensured consistency across SAP, distributors & external vendors.',
-        'Supported downstream reporting for sales, finance and marketing.' ] },
-      { h: 'SBR Project — unified data product', items: [
-        'Consolidated 12+ domains (BHT, HHP, MACRO, MEDIA, NEWS, POS, RMS, RTM, SCM, SELLIN, SELLOUT, WEATHER) into a centralized Lakehouse.',
-        'Replaced the manual Monthly Business Report with automated, standardized pipelines & models.',
-        'Enabled Power BI + API access with consistent KPI definitions — transforming reporting into real-time analytics.' ] },
-      { h: 'Master Data Management (MDS)', items: [
-        'Deployed & maintained Microsoft MDS for centralized governance of product, customer & channel entities.',
-        'Integrated MDS with the platform; troubleshot cross-domain AD / Kerberos access issues.' ] },
-      { h: 'AI & Platform Integration (Genie + Multi-Agent)', items: [
-        'Designed an AI-powered interaction layer using Databricks Genie and a multi-agent architecture.',
-        'Built domain-based routing (SELLIN / SELLOUT / RMS / MACRO) for intelligent query handling.',
-        'Implemented long-term memory & context-aware processing via vector search and Lakehouse storage.',
-        'Enabled business users to query data conversationally instead of using traditional BI.' ] },
-    ],
   },
   danone: {
-    period: 'Jan 2023 — Apr 2024 · Michael Page (client: Danone Greater China)',
-    title: 'Danone Greater China Data Platform',
-    bg: 'Danone Greater China builds an Ali Cloud datalake to replace its traditional Informatica + CDH warehouse, serving sales, supply chain and marketing for requirement analysis, design, development and operation. As data development team lead, I planned the digital direction across the milk-powder (ELN), beverage (DWC) and medical-nutrition (AMN) units.',
+    en: {
+      period: 'Jan 2023 — Apr 2024 · Michael Page (client: Danone Greater China)',
+      title: 'Danone Greater China Data Platform',
+      bg: 'Danone Greater China builds an Ali Cloud datalake to replace its traditional Informatica + CDH warehouse, serving sales, supply chain and marketing for requirement analysis, design, development and operation. As data development team lead, I planned the digital direction across the milk-powder (ELN), beverage (DWC) and medical-nutrition (AMN) units.',
+      groups: [
+        { h: 'Sales', items: [
+          'Sales DC Datalake: optimized the Direct-China sales datalake for daily sales data; 30+ analysis tables & OLAP cubes serving 300+ users on web & mobile.',
+          'Sales DI Datalake: built the Direct-Import datalake from scratch, integrating SELLIN / SELLOUT / OFFTAKE / INVENTORY and manual HK / TW / Macau data — foundation for demand planning.' ] },
+        { h: 'Supply Chain', items: [
+          'RTM (Route to Market): unified internal (Danone + distributors) inventory and external carrier logistics across the supply-chain lifecycle for DI & DC products.',
+          'T&C / ROLEX: end-to-end can-level traceability API — production, canning, transport, warehousing, distribution & terminal sales; consumer code-scan source tracing & anti-counterfeit.',
+          'AMN_PSI: integrated purchasing & sales-delivery data from SAP into a 30-KPI dashboard (top-10 province/category sales, GIT qty, open-PO qty, billing qty).' ] },
+        { h: 'Marketing', items: [
+          'DWC SKU Performance: integrated Nielsen & Kantar data for core-product (Pulse, Lingqi) and competitor market & consumer analysis.',
+          'Social Listening: flattened semi-structured comment data from Xiaohongshu, Weibo & mother-baby forums (1M+ records/day). Cut daily runtime from 2 hours to 10 minutes and Ali Cloud cost by 90%+ via optimization.' ] },
+        { h: 'Operations & Team Lead', items: [
+          'Ran agile change requests end-to-end with code control, version management & production deployment.',
+          'Managed the data ops team — ETL & Power BI dataset jobs, ServiceNow tickets (incident / CR / SR), RCA & job optimization to hold SLA / BAU.',
+          'Led production deployments and performed code reviews.' ] },
+      ],
+    },
+    zh: {
+      period: '2023.01 — 2024.04 · Michael Page（客户：达能大中华区）',
+      title: '达能大中华区数据平台',
+      bg: '达能大中华区构建阿里云数据湖以替代传统 Informatica + CDH 数仓，服务销售、供应链与营销，覆盖需求分析、方案设计、开发与运维。作为数据开发团队负责人，我为奶粉 (ELN)、饮料 (DWC) 与医学营养 (AMN) 业务单元规划数字化方向。',
+      groups: [
+        { h: '销售', items: [
+          'Sales DC 数据湖：优化直营中国 (DC) 销售数据湖，提供每日销售数据；30+ 分析表与 OLAP Cube 服务 300+ 用户，支持电脑与移动端。',
+          'Sales DI 数据湖：从零搭建直接进口 (DI) 销售数据湖，整合 SELLIN / SELLOUT / OFFTAKE / INVENTORY 及港澳台手工数据——为需求计划奠定基础。' ] },
+        { h: '供应链', items: [
+          'RTM（路线到市场）：打通达能及经销商内部库存与各承运商外部物流，覆盖 DI 与 DC 产品的供应链生命周期。',
+          'T&C / ROLEX：端到端罐级溯源 API——生产、灌装、运输、仓储、分销与终端销售；支持消费者扫码溯源与防伪。',
+          'AMN_PSI：将 SAP 采购与销售发货数据整合为 30 项 KPI 看板（Top10 省份/品类销售、在途量、未清 PO、开票量）。' ] },
+        { h: '营销', items: [
+          'DWC SKU 表现：整合尼尔森与凯度数据，开展核心产品（脉动、励奇）及竞品的市场与消费者分析。',
+          '社交聆听：将小红书、微博、母婴论坛等半结构化评论数据扁平化（每日 100 万+ 条）。通过代码优化将每日运行时间从 2 小时降至 10 分钟，阿里云成本降低 90%+。' ] },
+        { h: '运维与团队管理', items: [
+          '以敏捷方式端到端处理变更需求，进行代码管控、版本管理与生产部署。',
+          '管理数据运维团队——ETL 与 Power BI 数据集作业、ServiceNow 工单 (incident / CR / SR)、根因分析与作业优化，保障 SLA / BAU。',
+          '主导生产部署并进行代码评审。' ] },
+      ],
+    },
     arch: ['MaxCompute','DataWorks','Hologres','Power BI','Tableau','SQL Server','MySQL','Snowflake','Databricks','SAP','Spring','Redis','DQC','Nginx'],
-    groups: [
-      { h: 'Sales', items: [
-        'Sales DC Datalake: optimized the Direct-China sales datalake for daily sales data; 30+ analysis tables & OLAP cubes serving 300+ users on web & mobile.',
-        'Sales DI Datalake: built the Direct-Import datalake from scratch, integrating SELLIN / SELLOUT / OFFTAKE / INVENTORY and manual HK / TW / Macau data — foundation for demand planning.' ] },
-      { h: 'Supply Chain', items: [
-        'RTM (Route to Market): unified internal (Danone + distributors) inventory and external carrier logistics across the supply-chain lifecycle for DI & DC products.',
-        'T&C / ROLEX: end-to-end can-level traceability API — production, canning, transport, warehousing, distribution & terminal sales; consumer code-scan source tracing & anti-counterfeit.',
-        'AMN_PSI: integrated purchasing & sales-delivery data from SAP into a 30-KPI dashboard (top-10 province/category sales, GIT qty, open-PO qty, billing qty).' ] },
-      { h: 'Marketing', items: [
-        'DWC SKU Performance: integrated Nielsen & Kantar data for core-product (Pulse, Lingqi) and competitor market & consumer analysis.',
-        'Social Listening: flattened semi-structured comment data from Xiaohongshu, Weibo & mother-baby forums (1M+ records/day). Cut daily runtime from 2 hours to 10 minutes and Ali Cloud cost by 90%+ via optimization.' ] },
-      { h: 'Operations & Team Lead', items: [
-        'Ran agile change requests end-to-end with code control, version management & production deployment.',
-        'Managed the data ops team — ETL & Power BI dataset jobs, ServiceNow tickets (incident / CR / SR), RCA & job optimization to hold SLA / BAU.',
-        'Led production deployments and performed code reviews.' ] },
-    ],
   },
   hoomi: {
-    period: 'Feb 2021 — Dec 2022 · Zhejiang Hoomi Technology',
-    title: 'Hoomi Data Platform',
-    bg: 'After 10+ years of B-end new-retail growth, Hoomi needed a mature data system to avoid repeated computation, improve data sharing and enable data-as-a-service. I helped select the platform technology and developed/deployed several core modules.',
+    en: {
+      period: 'Feb 2021 — Dec 2022 · Zhejiang Hoomi Technology',
+      title: 'Hoomi Data Platform',
+      bg: 'After 10+ years of B-end new-retail growth, Hoomi needed a mature data system to avoid repeated computation, improve data sharing and enable data-as-a-service. I helped select the platform technology and developed/deployed several core modules.',
+      groups: [
+        { h: 'Platform & Modeling', items: [
+          'Built the index-management system — decomposing index components into logical tables for free, rule-based assembly and standardized custom indexes.',
+          'Authored DWH development specs: index management, SQL writing, data cleaning and task-naming conventions.',
+          'Modeled & stratified 8 domains: trading, commodity, member, material, storage, sales, customer-service and finance.' ] },
+        { h: 'Quality, BI & Services', items: [
+          'Configured DQC monitoring with classified data and strong/weak rule scheduling for intelligent early-warning and on-time delivery.',
+          'Built QuickBI datasets & departmental visual reports for effective business access.',
+          'Used RPA to collect competitor & takeout data for better pricing and sales.',
+          'Developed an ad-hoc self-service data-access system on the common layer, plus open-platform service APIs for other departments.' ] },
+      ],
+    },
+    zh: {
+      period: '2021.02 — 2022.12 · Zhejiang Hoomi Technology',
+      title: 'Hoomi 数据平台',
+      bg: '在 B 端新零售发展十余年后，Hoomi 需要成熟的数据体系以避免重复计算、提升数据共享并通过数据服务赋能应用。我参与平台技术选型并开发/部署了多个核心模块。',
+      groups: [
+        { h: '平台与建模', items: [
+          '搭建指标管理系统——将指标拆解为逻辑表中的组件，支持按规则自由拼装与标准化自定义指标。',
+          '编写数仓开发规范：指标管理、SQL 编写、数据清洗与任务命名规范。',
+          '对 8 大业务域建模分层：交易、商品、会员、物料、仓储、销售、客服与财务。' ] },
+        { h: '质量、BI 与服务', items: [
+          '基于 DQC 对数据分级并配置监控，结合强弱规则调度实现智能预警与按时产出。',
+          '基于 QuickBI 构建数据集与各部门可视化报表，提升业务获取信息效率。',
+          '利用 RPA 采集竞品与外卖数据，助力商品定价与销售。',
+          '在公共层之上开发即席自助取数系统，并向其他部门开放服务 API。' ] },
+      ],
+    },
     arch: ['DTS','RPA','DataHub','PolarDB','ClickHouse','Blink','MaxCompute','DQC','DataWorks','QuickBI','Spring','Redis','Impala','Elasticsearch','elastic-job'],
-    groups: [
-      { h: 'Platform & Modeling', items: [
-        'Built the index-management system — decomposing index components into logical tables for free, rule-based assembly and standardized custom indexes.',
-        'Authored DWH development specs: index management, SQL writing, data cleaning and task-naming conventions.',
-        'Modeled & stratified 8 domains: trading, commodity, member, material, storage, sales, customer-service and finance.' ] },
-      { h: 'Quality, BI & Services', items: [
-        'Configured DQC monitoring with classified data and strong/weak rule scheduling for intelligent early-warning and on-time delivery.',
-        'Built QuickBI datasets & departmental visual reports for effective business access.',
-        'Used RPA to collect competitor & takeout data for better pricing and sales.',
-        'Developed an ad-hoc self-service data-access system on the common layer, plus open-platform service APIs for other departments.' ] },
-    ],
   },
   profile: {
-    period: 'Jun 2022 — Aug 2022 · Zhejiang Hoomi Technology',
-    title: 'User Profile Management System',
-    bg: 'A user-portrait system to quantify users, tag them with labels, and locate target groups through modeling for marketing campaigns and effect analysis.',
+    en: {
+      period: 'Jun 2022 — Aug 2022 · Zhejiang Hoomi Technology',
+      title: 'User Profile Management System',
+      bg: 'A user-portrait system to quantify users, tag them with labels, and locate target groups through modeling for marketing campaigns and effect analysis.',
+      groups: [
+        { h: 'Responsibilities', items: [
+          'Integrated internal business-system data and external sources (customer service, Sensors) into the warehouse; built the application-layer user-label table.',
+          'Synced label tables to PolarDB daily for crowd selection and crowd-package creation.',
+          'Developed the crowd-circle selection core logic on Spring using streams with an optimal data structure.',
+          'Built crowd-insight logic — multi-label insight on selected crowds and two-package comparison across labels.',
+          'Delivered open user-profile APIs with Redis hot/cold backup, plus API development docs.' ] },
+      ],
+    },
+    zh: {
+      period: '2022.06 — 2022.08 · Zhejiang Hoomi Technology',
+      title: '用户画像管理系统',
+      bg: '用户画像系统用于量化用户、为用户打标签，并通过建模快速定位目标人群，用于营销投放与效果分析。',
+      groups: [
+        { h: '职责', items: [
+          '将业务系统内部数据与外部数据（客服、神策）整合入仓，按设计构建应用层用户标签表。',
+          '每日将标签表同步至 PolarDB，供画像系统圈选人群与创建人群包。',
+          '基于 Spring 用流式处理与最优数据结构开发人群圈选核心逻辑。',
+          '开发人群洞察逻辑——对所选人群进行多标签洞察，并支持两个人群包的跨标签对比。',
+          '对外提供用户画像开放 API，使用 Redis 做冷热数据备份，并编写维护接口开发文档。' ] },
+      ],
+    },
     arch: ['RPA','DTS','DataHub','PolarDB','MaxCompute','DataWorks','Spring','Redis','Sensors','elastic-job'],
-    groups: [
-      { h: 'Responsibilities', items: [
-        'Integrated internal business-system data and external sources (customer service, Sensors) into the warehouse; built the application-layer user-label table.',
-        'Synced label tables to PolarDB daily for crowd selection and crowd-package creation.',
-        'Developed the crowd-circle selection core logic on Spring using streams with an optimal data structure.',
-        'Built crowd-insight logic — multi-label insight on selected crowds and two-package comparison across labels.',
-        'Delivered open user-profile APIs with Redis hot/cold backup, plus API development docs.' ] },
-    ],
   },
 };
+
+/* ---------- i18n ---------- */
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const v = el.getAttribute('data-' + lang);
+    if (v !== null) el.innerHTML = v;
+  });
+  const en = document.getElementById('lbl-en'), zh = document.getElementById('lbl-zh');
+  en.className = 'transition-colors ' + (lang === 'en' ? 'text-cyan' : 'text-slate-500');
+  zh.className = 'transition-colors ' + (lang === 'zh' ? 'text-cyan' : 'text-slate-500');
+  if (!modal.classList.contains('hidden')) renderModal();
+}
 
 /* ---------- Modal logic ---------- */
 const modal = document.getElementById('modal');
 const card  = document.getElementById('modal-card');
-function openModal(key){
-  const p = projects[key]; if(!p) return;
+let currentProject = null;
+
+function renderModal(){
+  if (!currentProject) return;
+  const entry = projectData[currentProject];
+  const p = entry[currentLang];
+  const archLabel = (currentLang === 'zh') ? '技术架构' : 'Technical architecture';
   document.getElementById('m-period').textContent = p.period;
   document.getElementById('m-title').textContent = p.title;
-  const body = document.getElementById('m-body');
-  body.innerHTML =
-    '<p class="text-slate-400">'+p.bg+'</p>' +
-    '<div><p class="font-mono text-xs uppercase tracking-wider text-cyan mb-3">Technical architecture</p><div class="flex flex-wrap gap-2">' +
-      p.arch.map(t=>'<span class="chip rounded-md px-2.5 py-1 text-xs">'+t+'</span>').join('') +
+  document.getElementById('m-body').innerHTML =
+    '<p class="text-slate-400">' + p.bg + '</p>' +
+    '<div><p class="font-mono text-xs uppercase tracking-wider text-cyan mb-3">' + archLabel + '</p><div class="flex flex-wrap gap-2">' +
+      entry.arch.map(t => '<span class="chip rounded-md px-2.5 py-1 text-xs">' + t + '</span>').join('') +
     '</div></div>' +
     p.groups.map(g =>
-      '<div><h4 class="font-display font-semibold text-white">'+g.h+'</h4><ul class="mt-2 space-y-2">' +
-      g.items.map(it=>'<li class="flex gap-2.5"><svg class="mt-1.5 h-1.5 w-1.5 flex-none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#38BDF8"/></svg><span class="text-slate-400">'+it+'</span></li>').join('') +
+      '<div><h4 class="font-display font-semibold text-white">' + g.h + '</h4><ul class="mt-2 space-y-2">' +
+      g.items.map(it => '<li class="flex gap-2.5"><svg class="mt-1.5 h-1.5 w-1.5 flex-none" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#38BDF8"/></svg><span class="text-slate-400">' + it + '</span></li>').join('') +
       '</ul></div>'
     ).join('');
+}
+
+function openModal(key){
+  currentProject = key;
+  renderModal();
+  document.getElementById('m-body').scrollTop = 0;
   modal.classList.remove('hidden'); modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
-  requestAnimationFrame(()=>{ card.classList.remove('opacity-0','translate-y-4'); });
+  requestAnimationFrame(() => { card.classList.remove('opacity-0','translate-y-4'); });
 }
 function closeModal(){
   card.classList.add('opacity-0','translate-y-4');
   document.body.style.overflow = '';
-  setTimeout(()=>{ modal.classList.add('hidden'); modal.classList.remove('flex'); }, 250);
+  setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); }, 250);
 }
 document.querySelectorAll('[data-project]').forEach(el => el.addEventListener('click', () => openModal(el.dataset.project)));
 document.getElementById('modal-close').addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+/* ---------- Language toggle ---------- */
+document.getElementById('lang-toggle').addEventListener('click', () => setLang(currentLang === 'en' ? 'zh' : 'en'));
+setLang(currentLang);
 </script>
 </body>
 </html>

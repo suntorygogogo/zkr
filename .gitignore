@@ -1,3 +1,5 @@
 .claude/
 Ben Zhu.pdf
 *.pdf
+build/
+node_modules/

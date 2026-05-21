@@ -6,41 +6,9 @@
 <title>Ben Zhu · Senior Data Engineer</title>
 <meta name="description" content="Ben Zhu — Senior Data Engineer specializing in Lakehouse architecture, cloud data platforms (Azure / AWS / Ali Cloud), real-time processing, and AI/LLM data products." />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          display: ['"Space Grotesk"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
-          sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
-          mono: ['"JetBrains Mono"', 'monospace'],
-        },
-        colors: {
-          ink: '#070B16',
-          panel: '#0E1424',
-          line: 'rgba(148,163,184,0.14)',
-          cyan: '#38BDF8',
-          azure: '#3B82F6',
-          iris: '#6366F1',
-          mint: '#34D399',
-        },
-        keyframes: {
-          float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-18px)' } },
-          shine: { '0%': { backgroundPosition: '0% 50%' }, '100%': { backgroundPosition: '200% 50%' } },
-        },
-        animation: {
-          float: 'float 9s ease-in-out infinite',
-          shine: 'shine 6s linear infinite',
-        },
-      },
-    },
-  };
-</script>
+<!-- Self-hosted Tailwind build + fonts (no external CDN — fast in China / offline) -->
+<link rel="stylesheet" href="tailwind.css" />
+<link rel="stylesheet" href="fonts.css" />
 
 <style>
   :root { color-scheme: dark; }
@@ -64,6 +32,7 @@
     mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 85%);
   }
 
+  @keyframes shine { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
   .gradient-text {
     background: linear-gradient(100deg, #7DD3FC, #60A5FA, #818CF8, #34D399);
     background-size: 200% auto;
@@ -437,7 +406,7 @@
       <div class="relative h-44 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-cyan/30 via-azure/20 to-iris/30"></div>
         <img alt="Cloud data platform" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=70"
+          src="images/suntory.jpg"
           onerror="this.style.display='none'"/>
         <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur" data-en="2024 — Present" data-zh="2024 — 至今">2024 — Present</span>
       </div>
@@ -462,7 +431,7 @@
       <div class="relative h-44 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-mint/30 via-cyan/20 to-azure/30"></div>
         <img alt="Analytics dashboards" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70"
+          src="images/danone.jpg"
           onerror="this.style.display='none'"/>
         <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2023 — 2024</span>
       </div>
@@ -487,7 +456,7 @@
       <div class="relative h-44 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-iris/30 via-azure/20 to-cyan/30"></div>
         <img alt="Data infrastructure" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
-          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=70"
+          src="images/hoomi.jpg"
           onerror="this.style.display='none'"/>
         <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2021 — 2022</span>
       </div>
@@ -512,7 +481,7 @@
       <div class="relative h-44 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-azure/30 via-iris/20 to-mint/30"></div>
         <img alt="User segmentation" loading="lazy" class="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
-          src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=70"
+          src="images/profile.jpg"
           onerror="this.style.display='none'"/>
         <span class="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1 font-mono text-xs text-cyan backdrop-blur">2022</span>
       </div>
